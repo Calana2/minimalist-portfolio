@@ -1,0 +1,14 @@
+body {
+  background-color: #151519;
+  color: lightgray;
+  padding: 2rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+a {
+  color: #7e7;
+  text-decoration:none;
+}
+a:hover {
+  color: #fe30fe;
+}
+
