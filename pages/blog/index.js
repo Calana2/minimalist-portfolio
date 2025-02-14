@@ -21,7 +21,7 @@ const translations = {
     h1: "Blog",
     h1_p: "Nada aquí todavía.",
     pre_contact: "Contacto: ",
-    pre_more: "\n      Más: ",
+    pre_more: "\n     Más: ",
   }
 }
 //    +-----------+
@@ -36,19 +36,30 @@ function changeLanguage(lang) {
   document.getElementById("nav-a-about").innerText = translations[lang].nav_a_about
   document.getElementById("h1").innerText = translations[lang].h1
   document.getElementById("h1-p").innerText = translations[lang].h1_p
+  document.getElementById("span-lang-text").innerText = lang
   const pre = document.getElementById("footer-pre")
   let textNodeIndex = 0
   for (let node of pre.childNodes) {
-    if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("*")) {
-      console.log("NODEEE TEXT:",node.textContent)
+    if (node.nodeType === Node.TEXT_NODE) {
       if (textNodeIndex === 0) {
         node.textContent = translations[lang].pre_contact
-      } else {
+      } else if (textNodeIndex === 3){
         node.textContent = translations[lang].pre_more
       }
       textNodeIndex++
     }
   }
+}
+function changeLanguageWrapper(e) {
+ const lang = e.currentTarget.children[2].innerText
+ if(lang === "en") {
+  localStorage.setItem("lang","es") 
+ } else {
+  localStorage.setItem("lang","en") 
+ }
+ const newLang = localStorage.getItem("lang")
+ changeLanguage(newLang)
+ e.currentTarget.children[2].innerText = newLang
 }
 //    +--------------------------+
 //    | Main function and events |
@@ -58,7 +69,9 @@ function main() {
   if (lang === null) {
     localStorage.setItem("lang", "en")
     changeLanguage("en")
+  } else {
+    changeLanguage(lang)
   }
-  changeLanguage(lang)
+  document.querySelector('#span-lang-button').addEventListener('click',changeLanguageWrapper,false)
 }
 window.addEventListener('load', main, false)

@@ -2,7 +2,7 @@ body {
   background-color: #151519;
   color: lightgray;
   padding: 2rem;
-  font-family:Verdana, Geneva, Tahoma, sans-serif
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 a {
   color: #7e7;
@@ -11,13 +11,35 @@ a {
 a:hover {
   color: #fe30fe;
 }
-
 nav a:nth-child(6) {
   color: #fe30fe;
   border-bottom: 0.007rem solid #fe30fe;
 }
-
 #h1-p {
   padding: 1.2rem;
 }
-
+#span-lang-button {
+  display: flex;
+  justify-content: end;
+  gap: 0.1rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.0rem;
+  cursor: pointer;
+}
+.responsive-image {
+  display: none;
+}
+@media (max-width: 600px) {
+ .small {
+   display: block;
+  }
+}
+@media (min-width: 601px) {
+ .large {
+  display: block;
+ }
+ #span-lang-text {
+  font-size: 1.2rem
+ }
+}
