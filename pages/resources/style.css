@@ -42,4 +42,11 @@ nav a:nth-child(5) {
 }
 dt {
  padding: 1rem;
+ font-size: 1.3rem;
+}
+dd {
+  padding: 0.5rem;
+}
+footer {
+  margin-top: 3.0rem;
 }

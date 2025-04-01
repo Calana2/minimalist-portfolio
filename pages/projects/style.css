@@ -41,4 +41,6 @@ nav a:nth-child(3) {
   font-size: 1.2rem;
  }
 }
-
+footer {
+  margin-top: 3.0rem;
+}

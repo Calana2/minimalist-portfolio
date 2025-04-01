@@ -7,7 +7,12 @@ const translations = {
     nav_a_resources: "Resources",
     nav_a_about: "About",
     h1: "Projects",
-    h1_p: "Nothing here yet.",
+    projects: [
+     {
+       dt:"omgbeaupeep.com-downloader",
+       dd:"If you like to read comics, this is a tool to download those that are available in https://www.omgbeaupeep.com.",
+     },
+    ],
     pre_contact: "Contact: ",
     pre_more:  "\n   More: ",
   },
@@ -19,7 +24,12 @@ const translations = {
     nav_a_resources: "Recursos",
     nav_a_about: "Acerca de",
     h1: "Proyectos",
-    h1_p: "Nada aquí todavía.",
+    projects: [
+     {
+       dt:"omgbeaupeep.com-downloader",
+       dd:"Si te gusta leer comics, esta es una herramienta para descargar los que están disponibles en https://www.omgbeaupeep.com.",
+     },
+    ],
     pre_contact: "Contacto: ",
     pre_more: "\n     Más: ",
   }
@@ -35,8 +45,11 @@ function changeLanguage(lang) {
   document.getElementById("nav-a-resources").innerText = translations[lang].nav_a_resources
   document.getElementById("nav-a-about").innerText = translations[lang].nav_a_about
   document.getElementById("h1").innerText = translations[lang].h1
-  document.getElementById("h1-p").innerText = translations[lang].h1_p
   document.getElementById("span-lang-text").innerText = lang
+  document.querySelectorAll("dl.projects").forEach((e, idx) => {
+   e.children[0].firstChild.firstChild.innerText = translations[lang].projects[idx].dt
+   e.children[1].innerText = translations[lang].projects[idx].dd
+  })
   const pre = document.getElementById("footer-pre")
   let textNodeIndex = 0
   for (let node of pre.childNodes) {
